@@ -129,13 +129,13 @@ int main(){
 
             case 5:{
                 // Mensajito de despedida :D
-                std::cout << "MENSAJE DE DESPEDIDA GENERICO (•　ω　•) "
+                std::cout << "MENSAJE DE DESPEDIDA GENERICO "
                 << std::endl;
                 break;
             }
             default:
                 std::cout << "Selecciona uno de los"
-                << "numeros del 1 al 5 (⌣̀_⌣́) )"
+                << "numeros del 1 al 5 "
                 << std::endl;
 
         }
@@ -147,5 +147,6 @@ int main(){
 
     return 0;
 }
+
 
 
