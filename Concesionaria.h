@@ -19,8 +19,7 @@
 #include "Camioneta.h"
 
 class Concesionaria {
-    private:
-        // Se declaran los atributos
+    private:// Se declaran los atributos
         //Arreglos para guardar los vehiculos
         Moto inventario_motos[100];
         Coche inventario_coches[100];
@@ -32,82 +31,115 @@ class Concesionaria {
         int cantidad_camionetas;
 
 
-    public:
-        //Se declaran los metodos
-        //Constructor
+    public: //Se declaran los metodos
+        /**
+        * Constructor por default
+        * Inicializa los contadores de cantidad de vehiculos en 0.
+        *
+        * @param
+        * @return Objeto Concesionaria
+        */
         Concesionaria ()
-            : cantidad_motos(0), cantidad_coches(0), 
+            : cantidad_motos(0), cantidad_coches(0),
             cantidad_camionetas(0){};
 
         void agregar_moto(Moto &mo);
         void agregar_coche(Coche &co);
         void agregar_camioneta(Camioneta &ca);
-        // La formula usada para calcular el precio de venta es inventada
-        void mostrar_precios_venta(); 
+        void mostrar_precios_venta();
 };
 
-// Agrega un objeto Moto al arreglo
+/**
+ * Utiliza el arreglo inventario_motos y su contador cantidad_motos.
+ * Recibe un objeto de tipo Moto y lo agrega al inventario.
+ * Verifica que no se exceda el limite del arreglo (100).
+ *
+ * @param mo Objeto Moto a agregar
+ * @return
+ */
 void Concesionaria :: agregar_moto(Moto &mo){
-    if (cantidad_motos < 100) { 
-        inventario_motos[cantidad_motos] = mo; 
-        cantidad_motos++; 
-    } 
+    if (cantidad_motos < 100) {
+        inventario_motos[cantidad_motos] = mo;
+        cantidad_motos++;
+    }
     else {
-        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE MOTOS" 
+        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE MOTOS"
         << std::endl;
     }
 }
 
-// Agrega un objeto Coche al arreglo
+/**
+ * Utiliza el arreglo inventario_coches y su contador cantidad_coches.
+ * Recibe un objeto de tipo Coche y lo agrega al inventario.
+ * Verifica que no se exceda el limite del arreglo (100).
+ *
+ * @param co Objeto Coche a agregar
+ * @return
+ */
 void Concesionaria :: agregar_coche(Coche &co){
-    if (cantidad_coches < 100) { 
-        inventario_coches[cantidad_coches] = co; 
-        cantidad_coches++; 
-    } 
+    if (cantidad_coches < 100) {
+        inventario_coches[cantidad_coches] = co;
+        cantidad_coches++;
+    }
     else {
-        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE COCHES" 
+        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE COCHES"
         << std::endl;
     }
 }
 
-// Agrega un objeto Camioneta al arreglo
+/**
+ * Utiliza el arreglo inventario_camionetas y su contador cantidad_camionetas.
+ * Recibe un objeto de tipo Camioneta y lo agrega al inventario.
+ * Verifica que no se exceda el limite del arreglo (100).
+ *
+ * @param ca Objeto Camioneta a agregar
+ * @return
+ */
 void Concesionaria :: agregar_camioneta(Camioneta &ca){
-    if (cantidad_camionetas < 100) { 
-        inventario_camionetas[cantidad_camionetas] = ca; 
-        cantidad_camionetas++; 
-    } 
+    if (cantidad_camionetas < 100) {
+        inventario_camionetas[cantidad_camionetas] = ca;
+        cantidad_camionetas++;
+    }
     else {
-        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE CAMIONETAS" 
+        std::cout << "DE ALGUNA MANERA LLENASTE EL INVENTARIO DE CAMIONETAS"
         << std::endl;
     }
 }
 
-// Muestra los precios de venta de los vehiculos
+/**
+ * Recorre los arreglos de motos, coches y camionetas.
+ * Calcula el precio de venta de cada vehiculo utilizando su metodo
+ * calcular_precio_venta() y muestra la informacion en la consola.
+ *
+ * @param
+ * @return
+ */
 void Concesionaria :: mostrar_precios_venta(){
-    std::cout << "\n========== PRECIOS DE VENTA (MXN) :D ==========" 
+    std::cout << "\n========== PRECIOS DE VENTA (MXN) :D =========="
     << std::endl;
 
     for(int i = 0; i < cantidad_motos; i++) {
         float precio_final = inventario_motos[i].calcular_precio_venta();
-        
-        std::cout << "[MOTO] " << inventario_motos[i].toString() 
+
+        std::cout << "[MOTO] " << inventario_motos[i].to_string()
                   << " | TOTAL: $" << precio_final << std::endl;
     }
 
     for(int i = 0; i < cantidad_coches; i++) {
-        float precio_final = inventario_coches[i].calcular_precio_venta(); 
+        float precio_final = inventario_coches[i].calcular_precio_venta();
 
-        std::cout << "[COCHE] " << inventario_coches[i].toString() 
+        std::cout << "[COCHE] " << inventario_coches[i].to_string()
                   << " | TOTAL: $" << precio_final << std::endl;
     }
 
     for(int i = 0; i < cantidad_camionetas; i++) {
-        float precio_final = inventario_camionetas[i].calcular_precio_venta(); 
-            
-        std::cout << "[CAMIONETAS] " << inventario_camionetas[i].toString() 
+        float precio_final = inventario_camionetas[i].calcular_precio_venta();
+
+        std::cout << "[CAMIONETAS] " << inventario_camionetas[i].to_string()
                   << " | TOTAL: $" << precio_final << std::endl;
     }
 }
 #endif
+
 
 
